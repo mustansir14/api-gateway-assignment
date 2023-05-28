@@ -1,11 +1,11 @@
-from typing import List
+from typing import List, Union
 
 from fastapi import HTTPException
 import requests
 from pydantic import BaseModel
 
 
-def make_request(method: str, url: str, data: dict, success_code: int, response_schema: BaseModel | None, respone_is_list: bool = False) -> BaseModel | List[BaseModel] | None:
+def make_request(method: str, url: str, data: dict, success_code: int, response_schema: Union[BaseModel,  None], respone_is_list: bool = False) -> Union[BaseModel, List[BaseModel], None]:
 
     try:
         res = requests.request(method, url, json=data)
