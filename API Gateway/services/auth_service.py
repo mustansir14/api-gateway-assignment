@@ -13,12 +13,12 @@ AUTH_API = os.getenv("AUTH_API")
 
 def login(user: UserSchemaIn) -> UserSchemaOutToken:
 
-    return make_request("POST", url=AUTH_API + "/login", data=dict(), success_code=200, response_schema=UserSchemaOutToken)
+    return make_request("POST", url=AUTH_API + "/login", data=user.dict(), success_code=200, response_schema=UserSchemaOutToken)
 
 
 def signup(user: UserSchemaIn) -> UserSchemaOut:
 
-    return make_request("POST", url=AUTH_API + "/signup", data=dict(), success_code=201, response_schema=UserSchemaOut)
+    return make_request("POST", url=AUTH_API + "/signup", data=user.dict(), success_code=201, response_schema=UserSchemaOut)
 
 
 def decode_token(token: TokenSchema) -> UserSchemaOut:
