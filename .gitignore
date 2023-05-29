@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 
-Frontend/node_modules
+Frontend/node_modules/
